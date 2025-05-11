@@ -20,15 +20,12 @@ export class MyService {
 export class AppModule {}
 ```
 
-Aks holda, NestJS bu class’ni provider sifatida tan olmaydi va `Nest can't resolve dependencies` xatosini beradi.
 
 ## 2. Agar modul ichida biror provider `exports` arrayiga qo'shilmasa, uni boshqa modul import qilganda qanday muammo yuzaga keladi?
 
 Agar provider `exports` arrayiga qo'shilmasa, uni import qilgan modul undan foydalana olmaydi. U faqat ichki modulda mavjud bo'ladi.
 
-**Muammo yechimlari:**
-1. `exports` arrayiga qo‘shish
-2. SharedModule yaratib, umumiy providerlarni u yerga joylash
+`exports` arrayiga qo‘shish
 
 ## 3. `@Injectable()` dekoratori qaysi obyektlarga qo'shilishi mumkin va qaysilariga qo'shilmaydi? Express middleware'lariga bu dekorator kerakmi?
 
@@ -51,13 +48,13 @@ Yo‘q. Global modul bo‘lishi bilan birga, faqat `exports` qilingan providerla
 **Misol:**
 ```ts
 { provide: 'CONFIG', useValue: { port: 3000 } }
-@Inject('CONFIG') config
+@Inject('CONFIG') config any
 ```
 
 ## 7. Guard `ExecutionContext` orqali nimalarni oladi? DB chaqirish to‘g‘rimi?
 
 - `req`, `res`, handler, class, method
-- DB chaqirish texnik jihatdan mumkin, lekin servis orqali amalga oshirish yaxshiroq (SRP buzilmasin).
+- DB chaqirish texnik jihatdan mumkin, lekin servis orqali amalga oshirish yaxshiroq.
 
 ## 8. Bir xil providerni bir nechta modullarda `providers` ga qo‘ysak nima bo‘ladi?
 
